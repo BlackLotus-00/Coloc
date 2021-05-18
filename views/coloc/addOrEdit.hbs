@@ -1,0 +1,53 @@
+<div class="col-md-6 offset-md-3" style="background-color: #fff;margin-top: 25px;padding:20px;">
+<h3>{{viewTitle}}</h3>
+
+<form action="/coloc" method="POST" enctype="multipart/form-data" autocomplete="off">
+    <!--<input type="hidden" name="_id" value="{{employee._id}}">-->
+    <div class="form-group">
+        <label>Nom de l'annonce</label>
+        <input type="text" class="form-control" name="Nom" placeholder="Nom de votre annonce" value="{{coloc.nom}}">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Adresse</label>
+            <input type="text" class="form-control" name="adresse" placeholder="adresse" value="{{coloc.adresse}}">
+            <div class="text-danger">{{coloc.adresseError}}</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>ville</label>
+            <input type="text" class="form-control" name="ville" placeholder="ville" value="{{coloc.ville}}">
+            <div class="text-danger">
+                {{coloc.villeError}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+    <label>Prix</label>
+            <input type="text" class="form-control" name="prix" placeholder="prix" value="{{coloc.prix}}">
+            <div class="text-danger">
+            {{coloc.prixError}}</div>
+
+    </div>
+    <div class="form-group">
+        <label for="Type">Type de votre annonce</label>
+                  <select name="type" class="form-control" type="Selection" value="{{coloc.type}}">
+                    <option value="" disabled selected>--</option>
+                    <option value="Offre">Offre</option>
+                    <option value="Demande">Demande</option>
+                  </select>
+            <div class="text-danger">
+            {{coloc.typeError}}</div>
+    </div>
+    <div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" name="description" rows="4" placeholder="Description" value="{{coloc.description}}"></textarea>
+    </div>
+ <div class="form-group">
+        <label>Ajouter des images</label>
+        <input type="file" class="form-control-file" name="image" value={{coloc.img}}>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Valider</button>
+        <a class="btn btn-secondary" href="/coloc/list"><i class="fa fa-list-alt"></i> afficher toutes les offres</a>
+    </div>
+</form>
+</div>
