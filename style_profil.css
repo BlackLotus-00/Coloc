@@ -1,0 +1,67 @@
+body {
+  background-color: #00001a;
+  margin-top: 5%;
+}
+.padding-0 {
+  padding-left: 0;
+  margin: 0;
+}
+.container {
+  /*background: linear-gradient(180deg, #4d1919, black );*/
+
+  padding-left: 0;
+  padding-right: 0;
+  padding: 0;
+}
+
+.heigh {
+  height: 100%;
+}
+.heigh2 {
+  margin: 0;
+  width: 276px;
+}
+
+.centered {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Great Wishes";
+  font-size: 100px;
+}
+.top-left {
+  position: absolute;
+
+  top: 8px;
+  left: 16px;
+}
+.match {
+  width: 100%;
+}
+.clr {
+  /*background-color: rgba(155, 82, 82, 0.1);*/
+  margin: 0;
+  width: 863px;
+  height: 500px;
+}
+.match {
+  background-image: url("./threef.jpg");
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+.imag {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.buttn {
+  border: 2px solid black;
+  border-radius: 50px;
+
+  /*background:transparent;
+  padding:10px;*/
+}
