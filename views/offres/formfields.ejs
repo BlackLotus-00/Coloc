@@ -1,0 +1,38 @@
+<div class="container shadow p-3 mb-5 bg-body rounded" >
+    <div class="form-group">
+        <label for="title">Titre :</label>
+        <input required value="<%= offre.titre %>" type="text" name="titre" id="titre" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea name="description" id="description" class="form-control"><%= offre.description %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="adresse">Adresse :</label>
+        <input required value="<%= offre.adresse %>" type="text" name="adresse" id="adresse" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="ville">Ville :</label>
+        <input required value="<%= offre.ville %>" type="text" name="ville" id="ville" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="nbchambre">Nombre de chambres :</label>
+        <input required value="<%= offre.nbchambre %>" type="text" name="nbchambre" id="nbchambre" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="prix">Prix :</label>
+        <input required value="<%= offre.prix %>" type="text" name="prix" id="prix" class="form-control">
+    </div>
+    <div>
+        <img src="/uploads/images/<%= offre.image %>" alt="" class="card-img" style="width: 100px; height: 100px;">
+    </div>
+    <div class="form-group">
+        <label for="image">Ajouter image :</label>
+        <input value="<%= offre.image %>" type="file" name="image" id="image" class="form-control">
+    </div>
+    <br>
+    <a href="/mesoffres" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Save</button>
+</div>

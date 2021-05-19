@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <title>L'COLOC</title>
+    <style>
+        body{
+            background-color:#00001a;
+            margin: 170px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div classs="container text">
+        <h1 class="mb-4 text-white">Modifier une Offre</h1>
+
+        <form action="/offresco/<%= offre.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+            <%- include('formfields') %>
+        </form>
+    </div>
+
+</body>
+</html>

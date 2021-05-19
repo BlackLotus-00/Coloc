@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <title>L'COLOC</title>
+    <style>
+        body{
+            background-color:#00001a;
+            margin: 170px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div classs="container">
+        <h1 class="mb-4 text-white">Nouvelle offre</h1>
+
+        <form action="/offres" method="POST" enctype="multipart/form-data" >
+            <div class="container shadow p-3 mb-5 bg-body rounded" >
+                <div class="form-group">
+                    <label for="title">Titre :</label>
+                    <input required value="<%= offre.titre %>" type="text" name="titre" id="titre" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description :</label>
+                    <textarea name="description" id="description" class="form-control"><%= offre.description %></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="adresse">Adresse :</label>
+                    <input required value="<%= offre.adresse %>" type="text" name="adresse" id="adresse" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville :</label>
+                    <input required value="<%= offre.ville %>" type="text" name="ville" id="ville" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nbchambre">Nombre de chambres :</label>
+                    <input required value="<%= offre.nbchambre %>" type="text" name="nbchambre" id="nbchambre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="prix">Prix :</label>
+                    <input required value="<%= offre.prix %>" type="text" name="prix" id="prix" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="image">Ajouter image :</label>
+                    <input value="<%= offre.image %>" type="file" name="image" id="image" class="form-control">
+                </div>
+                <br>
+                <a href="/mesoffres" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
