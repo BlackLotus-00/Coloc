@@ -1,0 +1,128 @@
+*
+{
+	margin: 0;
+	padding: 0;
+
+}
+/*----barre de navigation----*/
+#nav-bar
+{
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+.navbar-brand img
+{
+	height: 50px;
+	padding-left: 30px;
+}
+.navbar-nav li
+{
+	padding: 0 10px;
+}
+.navbar-nav li a
+{
+	float: right;
+	text-align: left;
+}
+#nav-bar ul li a:hover
+{
+	color: #cc99ff!important;
+}
+.navbar
+{
+	background: #fff;
+}
+.navbar-toggler
+{
+	border: none!important;
+}
+.nav-link
+{
+	color: #555!important;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+#slider
+{
+	width: 100%;
+
+}
+.carousel-caption
+{
+	top: 50%;
+	transform: translateY(-50%);
+	bottom: initial;
+}
+/*----A propos----*/
+#about
+{
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: #555;
+}
+.about-content
+{
+	padding-top: 20px;
+}
+.apropos {
+  border: 2px solid black;
+  padding: 2px;
+  max-width: 100%;
+  height: auto;
+}
+/*----contact----*/
+/*----contact----*/
+#contact
+{
+	background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(contactus.jpg));
+	padding-top: 40px;
+	padding-bottom: 40px;
+	color: #777;
+}
+#contact h1
+{
+	text-align: center;
+	color: #efefefe !important;
+	padding-bottom: 10px;
+}
+#contact h1 ::after
+{
+	content: '';
+	background: #efefefe;
+	display: block;
+	height: 3px;
+	width: 170px;
+	margin: 20px auto 5px;
+
+}
+
+.contact-form
+{
+	padding: 15px;
+}
+.form-control
+{
+	border-radius: 0 !important;
+	border: none !important;
+}
+::placeholder
+{
+	color: #777 !important;
+}
+.follow
+{
+	background: #fff;
+	padding: 10px;
+	margin: 15px;
+
+}
+.chercher
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	color: aliceblue;
+}

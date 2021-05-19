@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!--barre de navigation--->
+  <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="logo1.png"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Demandes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Offres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">A propos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contactez nous</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Se connecter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</section>
+  <!----slider---->
+<div id="slider">
+<div id="headerSlider" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="image11.jpg" class="d-block w-100">
+      <div class="carousel-caption">
+        <h1>Vivons ensemble,Economisons plus!</h1>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="image12.jpg" class="d-block w-100">
+        <div class="chercher">
+    <label for="Type">Ou cherchez vous un logement ?</label>
+              <select name="type" class="form-control" type="Selection">
+                <option value="" disabled selected>--</option>
+                <option value="Rabat">Rabat</option>
+                <option value="Casablance">Casablanca</option>
+              </select>
+  
+  </div>
+
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#headerSlider" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#headerSlider" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!----A propos---->
+<section id="about">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<h2>A propos</h2>
+<div class="about-content">
+          Les pages À Propos ne sont souvent pas la priorité des e-commerçants — après tout, il ne s’agit que d’un lien qui restera enfoui dans le pied de page du site et qui redirigera vers quelques paragraphes rédigés à la hâte au sujet de l’entreprise.
+
+
+
+Mais, une page À Propos efficace devrait en réalité être une page de vente qui dispose d’objectifs bien définis. C’est une page qui devrait mettre en avant les points forts de votre histoire et de votre marque, et laisser une impression durable dans l’esprit des clients curieux.
+</div>
+</div>
+<div class="col-md-6">
+  <img class="apropos" src="aboutus.jpg"  >
+</div>
+  </div>
+</section>
+<!----CONTACTEZ NOUS---->
+<section id="contact">
+  <div class="container">
+    <form action="/accueil2/sent" method="POST">
+
+    <h1>Contactez nous</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Votre nom" name="NOM">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Votre email" name="Email">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows=4 placeholder="Message" name="Message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+        
+      </div>
+      <div class="col-md-6 contact-info">
+        <div class="follow"><b>Email:</b><i class="fa fa-envelope-o" aria-hidden="true"></i>
+         lcoloc.enim@gmail.com</div>
+        
+        <div class="follow"><b>Téléphone:</b><i class="fa fa-phone-square" aria-hidden="true"></i>
+         06------</div>
+
+        <div class="follow"><b>Email:</b> lcoloc.enim@gmail.com</div>
+        
+        </div>
+  </div>
+  
+</section>
+
+
+
+</body>
+</html>
+
