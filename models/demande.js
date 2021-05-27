@@ -26,10 +26,17 @@ const demandeSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now()
+    },
+    activer: {
+        type: String
     }
 })
 
+demandeSchema.pre('validate', function(next){
+    this.activer = "Active"
 
+    next()
+})
 
 
 module.exports = mongoose.model('Demande', demandeSchema)

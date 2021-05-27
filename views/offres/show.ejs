@@ -12,6 +12,15 @@
             background-color:#00001a;
             margin: 170px;
         }
+        .aa {
+            display:inline-block;
+            width: 200px;
+            height: 250px;}
+        .a2{
+            display:inline-block;
+            width: 400px;
+            height: 250px;
+        }
         
     </style>
 </head>
@@ -23,7 +32,9 @@
        <a href="/mesoffres" class="btn btn-secondary">Mes Offres</a>
        <a href="/offres/edit/<%= offre.id %>" class="btn btn-info">Modifier</a>
        <div class="col-5 overflow-hidden">
-        <img src="/uploads/images/<%= offre.image %>" class="card-img" alt="aucune image disponible">
+        <img src="/uploads/images/<%= offre.image[0] %>" class="aa" alt="">
+        <img src="/uploads/images/<%= offre.image[1] %>" class="aa" alt="">
+        <img src="/uploads/images/<%= offre.image[2] %>" class="a2" alt="">
         </div>
        <div class="card"><%- offre.description %></div>
        <div class="card">Nombre de chambres : <%- offre.nbchambre %></div>

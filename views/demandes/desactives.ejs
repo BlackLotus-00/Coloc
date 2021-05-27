@@ -26,8 +26,8 @@
         <br>
         <form name="form2" action="/demandes-actives" method="GET" class="d-inline">
             <select class="form-select" name="type" id="type" type="submit" onchange="return document.form2.submit();">
-                <option value="Active" >Demandes Actives</option>
                 <option value="Désactivée" >Demandes Désactivées</option>
+                <option value="Active" >Demandes Actives</option>
             </select>
         </form>
         <br>
@@ -37,7 +37,7 @@
             <div class="card mt-4" style="width: 333px;">
                 <div class="card-body " >
                     <form action="/demandes/activate/<%= demande.id %>?_method=PUT" method="POST" class="d-inline">
-                        <button class="btn btn-warning" id="desactiver" onclick="return confirm('Vous etes sur de vouloir désactiver cette demande ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Désactiver</button>
+                        <button class="btn btn-warning" id="activer" onclick="return confirm('Vous etes sur de vouloir activer cette demande ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Activer</button>
                     </form>
                     <h4 class="card-title" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><%= demande.titre %></h4>
                     <div class="card-subtitle text-muted mb-2">

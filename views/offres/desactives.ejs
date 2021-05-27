@@ -21,13 +21,13 @@
     <div classs="container">
         <h1 class="mb-4 text-white">Mes Offres</h1>
         <a href="/profil" class="btn btn-light">retour au profil</a>
-        <a href="/offresco/new" class="btn btn-warning">Nouvelle Offre</a>
+        <a href="/offres/new" class="btn btn-warning">Nouvelle Offre</a>
         <br>
         <br>
-        <form name="form3" action="/offresco-actives" method="GET" class="d-inline">
-            <select class="form-select" name="type" id="type" type="submit" onchange="return document.form3.submit();">
-                <option value="Active" >Offres Actives</option>
+        <form name="form1" action="/offres-actives" method="GET" class="d-inline">
+            <select class="form-select" name="type" id="type" type="submit" onchange="return document.form1.submit();">
                 <option value="Désactivée" >Offres Désactivées</option>
+                <option value="Active" >Offres Actives</option>
             </select>
         </form>
         <br>
@@ -36,8 +36,8 @@
         <% offres.forEach(offre =>{ %>
             <div class="card mt-4" style="width: 333px; height: 360px;">
                 <div class="card-body " >
-                    <form action="/offresco/activate/<%= offre.id %>?_method=PUT" method="POST" class="d-inline">
-                        <button class="btn btn-warning" id="desactiver" onclick="return confirm('Vous etes sur de vouloir désactiver cette offre ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Désactiver</button>
+                    <form action="/offres/activate/<%= offre.id %>?_method=PUT" method="POST" class="d-inline">
+                        <button class="btn btn-warning" id="activer" onclick="return confirm('Vous etes sur de vouloir activer cette offre ?!');  " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Activer</button>
                     </form>
                     <h4 class="card-title" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><%= offre.titre %></h4>
                     <div class="card-subtitle text-muted mb-2">
@@ -55,10 +55,10 @@
                     <div class="card-footer bg-transparent">
                         Prix : <%= offre.prix %>
                     </div>
-                    <a href="offresco/<%= offre.id %>" class="btn btn-success">Plus d'infos</a>
-                    <a href="offresco/edit/<%= offre.id %>" class="btn btn-info">modifier</a>
-                    <form action="/offresco/<%= offre.id %>?_method=DELETE" method="POST" class="d-inline">
-                        <button class="btn btn-danger" id="butt" onclick="return confirm('Vous etes sur de vouloir supprimer cette offre ?!')" type="submit">supprimer</button>
+                    <a href="offres/<%= offre.id %>" class="btn btn-success">Plus d'infos</a>
+                    <a href="offres/edit/<%= offre.id %>" class="btn btn-info">modifier</a>
+                    <form action="/offres/<%= offre.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button class="btn btn-danger" id="supprimer" onclick="return confirm('Vous etes sur de vouloir supprimer cette offre ?!')" type="submit">supprimer</button>
                     </form>
                 </div>
             </div>

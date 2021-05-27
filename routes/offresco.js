@@ -37,10 +37,10 @@ router.get('/edit/:id', async (req, res)=>{
     res.render('offresco/edit', {offre: offre })
 })
 
-router.post('/', upload.single('image'), async (req, res, next)=>{
+router.post('/', upload.array('image',3), async (req, res, next)=>{
     //console.log(req.file)
     offre = new Offre()
-    
+    let imagesArray= []
     offre.titre = req.body.titre
     offre.username = {
         id: req.user._id,
@@ -51,8 +51,12 @@ router.post('/', upload.single('image'), async (req, res, next)=>{
     offre.ville = req.body.ville
     offre.prix = req.body.prix
     offre.nbchambre = req.body.nbchambre
-    if(req.file) {
-        offre.image = req.file.filename
+    if(req.files) {
+        req.files.forEach(element => {
+            const img = element.filename
+            imagesArray.push(img)
+        });
+        offre.image = imagesArray
     }
     
     try {
@@ -64,8 +68,14 @@ router.post('/', upload.single('image'), async (req, res, next)=>{
     }
 })
 
-router.put('/:id', upload.single('image'), (req, res, next)=> {
-    if(req.file){
+router.put('/:id', upload.array('image',3), (req, res, next)=> {
+    let imagesArray= []
+    if(req.files){
+        req.files.forEach(element => {
+            const img = element.filename
+            imagesArray.push(img)
+        });
+        offre.image = imagesArray
         var dataRecords={
             titre: req.body.titre,
             description: req.body.description,
@@ -73,7 +83,7 @@ router.put('/:id', upload.single('image'), (req, res, next)=> {
             ville: req.body.ville,
             prix: req.body.prix,
             nbchambre: req.body.nbchambre,
-            image: req.file.filename,
+            image: imagesArray,
         }
     }else{
         var dataRecords={
@@ -100,6 +110,22 @@ router.put('/:id', upload.single('image'), (req, res, next)=> {
 
 router.delete('/:id', async (req, res)=> {
     await Offre.findByIdAndDelete(req.params.id)
+    res.redirect('/mesoffresco')
+})
+
+router.put('/activate/:id', async (req, res)=> {
+    offre = await Offre.findById(req.params.id)
+    if(offre.activer == "Désactivée") {
+        var data1={
+            activer : "Active"
+        }
+        await Offre.findByIdAndUpdate(req.params.id, data1)
+    }else{
+        var data2={
+            activer : "Désactivée"
+        }
+        await Offre.findByIdAndUpdate(req.params.id, data2)
+    }
     res.redirect('/mesoffresco')
 })
 

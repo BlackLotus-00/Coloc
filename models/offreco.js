@@ -31,14 +31,23 @@ const offreSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    image: {},
+    image: {
+        type: []
+    },
     prix: {
         type: String,
         required: true
+    },
+    activer: {
+        type: String
     }
 })
 
+offreSchema.pre('validate', function(next){
+    this.activer = "Active"
 
+    next()
+})
 
 
 module.exports = mongoose.model('Offreco', offreSchema)

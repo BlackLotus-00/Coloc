@@ -41,18 +41,48 @@ router.get('/hi', checkAuthenticated,(req,res)=> {
 })
 
 router.get('/mesoffresco', async (req,res)=>{
-    const offres = await Offreco.find({"username.id" : req.user._id}).sort({createdAt: 'desc'})
+    const offres = await Offreco.find({"username.id" : req.user._id, activer: "Active"}).sort({createdAt: 'desc'})
     res.render('offresco/index', {offres: offres})
 })
 
 router.get('/mesdemandes', async (req,res)=>{
-    const demandes = await Demande.find({"username.id" : req.user._id}).sort({createdAt: 'desc'})
+    const demandes = await Demande.find({"username.id" : req.user._id, activer: "Active"}).sort({createdAt: 'desc'})
     res.render('demandes/mesdemandes', {demandes: demandes})
 })
 
 router.get('/mesoffres', async (req,res)=>{
-    const offres = await Offre.find({"username.id" : req.user._id}).sort({createdAt: 'desc'})
+    const offres = await Offre.find({"username.id" : req.user._id, activer: "Active"}).sort({createdAt: 'desc'})
     res.render('offres/index', {offres: offres})
+})
+
+router.get('/offres-actives', async (req,res)=>{
+    var active = req.query.type
+    const offres = await Offre.find({"username.id" : req.user._id, activer: active}).sort({createdAt: 'desc'})
+    if (active == "Désactivée"){
+        res.render('offres/desactives', {offres: offres})
+    }else{
+    res.render('offres/index', {offres: offres})
+    }
+})
+
+router.get('/offresco-actives', async (req,res)=>{
+    var active = req.query.type
+    const offres = await Offreco.find({"username.id" : req.user._id, activer: active}).sort({createdAt: 'desc'})
+    if (active == "Désactivée"){
+        res.render('offresco/desactives', {offres: offres})
+    }else{
+    res.render('offresco/index', {offres: offres})
+    }
+})
+
+router.get('/demandes-actives', async (req,res)=>{
+    var active = req.query.type
+    const demandes = await Demande.find({"username.id" : req.user._id, activer: active}).sort({createdAt: 'desc'})
+    if (active == "Désactivée"){
+        res.render('demandes/desactives', {demandes: demandes})
+    }else{
+    res.render('demandes/mesdemandes', {demandes: demandes})
+    }
 })
 
 module.exports = router;

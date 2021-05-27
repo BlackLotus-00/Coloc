@@ -64,6 +64,22 @@ router.delete('/:id', async (req, res)=> {
     res.redirect('/mesdemandes')
 })
 
+router.put('/activate/:id', async (req, res)=> {
+    demande = await Demande.findById(req.params.id)
+    if(demande.activer == "Désactivée") {
+        var data1={
+            activer : "Active"
+        }
+        await Demande.findByIdAndUpdate(req.params.id, data1)
+    }else{
+        var data2={
+            activer : "Désactivée"
+        }
+        await Demande.findByIdAndUpdate(req.params.id, data2)
+    }
+    res.redirect('/mesdemandes')
+})
+
 module.exports = router
 
 

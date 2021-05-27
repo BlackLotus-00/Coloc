@@ -24,16 +24,27 @@
         <a href="/offres/new" class="btn btn-warning">Nouvelle Offre</a>
         <br>
         <br>
+        <form name="form1" action="/offres-actives" method="GET" class="d-inline">
+            <select class="form-select" name="type" id="type" type="submit" onchange="return document.form1.submit();">
+                <option value="Active" >Offres Actives</option>
+                <option value="Désactivée" >Offres Désactivées</option>
+            </select>
+        </form>
+        <br>
+        <br>
 
         <% offres.forEach(offre =>{ %>
             <div class="card mt-4" style="width: 333px; height: 360px;">
                 <div class="card-body " >
+                    <form action="/offres/activate/<%= offre.id %>?_method=PUT" method="POST" class="d-inline">
+                        <button class="btn btn-warning" id="desactiver" onclick="return confirm('Vous etes sur de vouloir désactiver cette offre ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Désactiver</button>
+                    </form>
                     <h4 class="card-title" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><%= offre.titre %></h4>
                     <div class="card-subtitle text-muted mb-2">
                         <%= offre.createdAt.toLocaleDateString() %>
                     </div>
                     <div>
-                        <img src="/uploads/images/<%= offre.image %>" alt="" class="card-img" style="width: 250px; height: 100px;">
+                        <img src="/uploads/images/<%= offre.image[0] %>" alt="" class="card-img" style="width: 250px; height: 100px;">
                     </div>
                     <div class="card-text mb-2" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
                         Adresse : <%= offre.adresse %>
@@ -47,8 +58,9 @@
                     <a href="offres/<%= offre.id %>" class="btn btn-success">Plus d'infos</a>
                     <a href="offres/edit/<%= offre.id %>" class="btn btn-info">modifier</a>
                     <form action="/offres/<%= offre.id %>?_method=DELETE" method="POST" class="d-inline">
-                        <button class="btn btn-danger" id="butt" onclick="return confirm('Vous etes sur de vouloir supprimer cette offre ?!')" type="submit">supprimer</button>
+                        <button class="btn btn-danger" id="supprimer" onclick="return confirm('Vous etes sur de vouloir supprimer cette offre ?!')" type="submit">supprimer</button>
                     </form>
+                    
                 </div>
             </div>
         <% }) %>
