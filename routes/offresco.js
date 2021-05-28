@@ -70,12 +70,11 @@ router.post('/', upload.array('image',3), async (req, res, next)=>{
 
 router.put('/:id', upload.array('image',3), (req, res, next)=> {
     let imagesArray= []
-    if(req.files){
-        req.files.forEach(element => {
-            const img = element.filename
-            imagesArray.push(img)
-        });
-        offre.image = imagesArray
+    req.files.forEach(element => {
+        const img = element.filename
+        imagesArray.push(img)
+    });
+    if(imagesArray.length>0){
         var dataRecords={
             titre: req.body.titre,
             description: req.body.description,

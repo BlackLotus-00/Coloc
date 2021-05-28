@@ -56,10 +56,10 @@ router.get('/profil', (req,res)=> {
     
 })
 //edit the profile
-//i need this in order to be able to edit the psp
+//i need this in order to be able to edit the pdp
 const storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, './public/uploads/images');
+        callback(null, './public/uploads/pdps');
     },
 
     filename: function(req, file, callback) {
@@ -89,7 +89,7 @@ router.get('/edit/:id', async (req, res)=>{
 })
 
 //the editing
-router.put('/:id', upload.single('image'), (req, res, next)=> {
+router.put('/:id', (req, res, next)=> {
     
     var dataRecords={
         name: req.body.name,
@@ -123,8 +123,6 @@ router.put('/pdp/:id', upload.single('image'), (req, res, next)=> {
         var dataRecords={
             image: req.file.filename,
         }
-    }else{
-        console.log('damn')
     }
 
     var update= User.findByIdAndUpdate(req.params.id, dataRecords)
