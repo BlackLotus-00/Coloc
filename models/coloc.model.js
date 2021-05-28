@@ -24,7 +24,32 @@ var colocSchema = new mongoose.Schema({
     Description: {
         type:String
     },
-    img:{}
-})
+    img:{
+        type:[]
+    },
+    comment: {
+        type:[],
+        Text:{
+            type:String
+        },
+        owner:{
+            type:String
+        }
+    }
+});
 
+//var CommentShema = new mongoose.Schema({
+//    annonce_id:{
+//        type:String,
+//    },
+//    comment:{
+//        type:String
+//    },
+//    owner:{
+//        type:String
+//    }
+//});
+//
 mongoose.model(`Offre_demande`,colocSchema);
+//mongoose.model(`Commentaire`,CommentShema);
+

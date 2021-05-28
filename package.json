@@ -11,11 +11,23 @@
   "license": "ISC",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.17.2",
+    "google-auth-library": "^7.0.4",
+    "handlebars": "^4.7.7",
+    "moment": "^2.29.1",
     "mongoose": "^5.12.9",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.7"
+    "nodemailer": "^6.6.0",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.1.2"
   }
 }
