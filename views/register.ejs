@@ -23,7 +23,7 @@
             </h1>
             <form action="/users/register" method="POST">
               <div class="form-group">
-                <label for="lastname">Prénom</label>
+                <label for="lastname">Prénom*</label>
                 <input
                   type="name"
                   id="lastname"
@@ -34,7 +34,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="name">Nom</label>
+                <label for="name">Nom*</label>
                 <input
                   type="name"
                   id="name"
@@ -45,7 +45,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input
                   type="email"
                   id="email"
@@ -56,7 +56,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password">Mot de passe</label>
+                <label for="password">Mot de passe*</label>
                 <input
                   type="password"
                   id="password"
@@ -67,7 +67,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password2">Confirmer le mot de passe</label>
+                <label for="password2">Confirmer le mot de passe*</label>
                 <input
                   type="password"
                   id="password2"
@@ -78,7 +78,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="birthday">Date de Naissance</label>
+                <label for="birthday">Date de Naissance*</label>
                 <input
                   type="date"
                   id="birthday"
@@ -89,12 +89,32 @@
                 />
               </div>
               <div class="form-group">
-                <label for="status">Status</label> 
+                <label for="status">Status*</label> 
                 <select id="status"name="status">
                   <option value="status0">------</option>
                   <option value="status1">Etudiant(e)</option>
                   <option value="status2">Propriétaire</option>
                   
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="school">Etablissement scolaire</label> 
+                <select id="school"name="school">
+                  <option value="school0">------</option>
+                  <option value="school1">Université</option>
+                  <option value="school2">Ecole d'ingénieurs</option>
+                  <option value="school3">Médecine</option>
+                  <option value="school4">Institut</option>
+                  
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="duree">Durée </label> 
+                <select id="duree"name="duree">
+                  <option value="duree0">------</option>
+                  <option value="duree1">1-3 mois</option>
+                  <option value="duree2">3-6 mois</option>
+                  <option value="school3">>6 mois</option>  
                 </select>
               </div>
               <div class="form-group">

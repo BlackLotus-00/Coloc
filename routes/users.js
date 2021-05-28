@@ -11,8 +11,10 @@ router.use(cookieParser());
 const {OAuth2Client} = require('google-auth-library');
 const CLIENT_ID= '32169756545-292ks3srcagog06e62va2nbii7v20pka.apps.googleusercontent.com'
 const client = new OAuth2Client(CLIENT_ID);
+//retour precedant non autorisé!!
+const { forwardAuthenticated } = require('../config/auth');
 //login page
-router.get('/login', (req,res) => {
+router.get('/login', forwardAuthenticated ,(req,res) => {
     //res.sendFile(path.resolve('./public/login.html'))
     res.render('login')
 })
@@ -37,12 +39,12 @@ router.get('/hello', checkAuthenticated,(req,res) => {
     res.send('you reached the redirect URI');
 });*/
 //register page
-router.get('/register', (req,res) => {
+router.get('/register', forwardAuthenticated ,(req,res) => {
     //res.sendFile(path.resolve('./public/register.html'))
     res.render('register')
 })
 router.get('/profil', (req,res)=> {
-    res.render('profil', {
+    res.render('profil2', {
         user: req.user
   });
 })
@@ -197,11 +199,22 @@ router.post('/login',(req,res,next)=> {
 });
 
 //logout handle
-router.get('/logout',(req,res)=> {
+/*router.post('/logout',(req,res)=> {
     req.logout();
+    delete req.user;
     req.flash('success_msg', 'vous etes deconnecté');
-    res.redirect('/users/login')
+    res.redirect('/')
+    
+   
+});*/
+
+router.get('/logout', (req, res) => {
+    req.logout();
+    req.flash('success_msg', 'vous etes déconnecté');
+    res.redirect('/users/login');
 });
+      
+
 //login with google
 
 
