@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <title>L'COLOC</title>
+    <style>
+        body{
+            background-color:#00001a;
+            margin: 170px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div classs="container">
+        <h1 class="mb-4 text-white"><%= offre.titre %></h1>
+        <div class="text-muted mb-2"><%= offre.createdAt.toLocaleString() %></div>
+
+       <a href="/mesoffresco" class="btn btn-secondary">Mes Offres</a>
+       <a href="/offresco/edit/<%= offre.id %>" class="btn btn-info">Modifier</a>
+       <div class="col-5 overflow-hidden">
+        <img src="/uploads/images/<%= offre.image %>" class="card-img" alt="aucune image disponible">
+        </div>
+       <div class="card"><%- offre.description %></div>
+       <div class="card">Nombre de chambres : <%- offre.nbchambre %></div>
+       <div class="card">Adresse : <%= offre.adresse %></div>
+       <div class="card">Ville : <%- offre.ville %></div>
+       <div class="card">Prix : <%- offre.prix %></div>
+
+    </div>
+
+</body>
+</html>

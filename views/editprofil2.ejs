@@ -1,0 +1,119 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" href="styles.css">
+<title>L'COLOC</title>
+
+
+
+
+<body>
+  <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid ">
+       <a class="navbar-brand" href="#"><img src="logo1.png"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto ">
+        <li class="nav-item ">
+          <a class="nav-link "href="#">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#">Demandes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#">Offres</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link " href="#">Se déconnecter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</section>
+
+
+<div class="container "></div>
+
+   
+    <div class="row">
+      <div class="col-md-3 padding-0 " style="margin-right: 100px;"> 
+        <div style="height:500px;">
+            <div style="padding:15px 0px 10px 130px; margin-right: -17px;" class="bg-light">
+              <a href="/users/edit-pdp/<%= user.id %>">
+                <img src="/uploads/images/<%= user.image%>" alt="photo de profil" class=" imag">
+              </a>
+            </div>
+            <div class="list-group heigh2" style="width: 350px;">
+              <a href="/profil" class="list-group-item list-group-item-action text-body fas fa-home"><span  style="padding: left 19px;">Profil</span></a>
+              <a href="/users/edit/<%= user.id %>" class="list-group-item list-group-item-action text-body fas fa-user"><span style="padding-left:19px;">Modifier votre profil</span></a>
+              <a href="#" class="list-group-item list-group-item-action text-body fas fa-user-lock"><span style="padding-left:19px;">Changer le mot de passe</span></a>
+              <a href="#" class="list-group-item list-group-item-action text-body fas fa-lock"><span style="padding-left:19px;">Paramètres confidentialité</span></a>
+              <a href="/mesoffres" class="list-group-item list-group-item-action text-body fas fa-handshake"><span style="padding-left:19px;">Mes Offres</span></a>
+              <a href="/offres/new" class="list-group-item list-group-item-action text-body fas fa-plus-circle"><span style="padding-left :19px;">Ajouter une offre</span></a>
+              <a href="/mesdemandes" class="list-group-item list-group-item-action text-body fas fa-handshake"><span style="padding-left: 19px;">Mes Demandes</span></a>
+              <a href="/demandes/new" class="list-group-item list-group-item-action text-body fas fa-plus-circle"><span style="padding-left :19px;">Ajouter une demande</span></a>
+              <a href="#" class="list-group-item list-group-item-action text-body fas fa-cogs"><span style="padding-left:19px;">Paramètres</span></a>
+              
+                
+              </div> 
+          </div>
+      </div>
+      <div class="col-md-8 padding-0 " style="margin-top: 123px;">
+        <div class="card clr" style="height: 400px;">
+          <div class="card-body ">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <h4>Modifier Votre Profil</h4>
+                          <hr>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <form action="/users/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                
+                                <div class="form-group row">
+                                  <label for="name" class="col-4 col-form-label">Prenom :</label> 
+                                  <div class="col-8">
+                                    <input id="name" name="name" value="<%= user.name %>" class="form-control-plaintext" type="text">
+                                  </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                  <label for="email" class="col-4 col-form-label">Email :</label> 
+                                  <div class="col-8">
+                                    <input id="email" name="email" value="<%= user.email %>" class="form-control-plaintext" required="required" type="text">
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="datenaissance" class="col-4 col-form-label">Date de naissance :</label> 
+                                  <div class="col-8">
+                                    <input id="datenaissance" name="datenaissance" value="<%= user.birthday.toLocaleDateString() %>" class="form-control-plaintext" type="text">
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="telnum" class="col-4 col-form-label">Numero de telephone :</label> 
+                                  <div class="col-8">
+                                      <input id="telnum" name="telnum" value="<%= user.phone %>" class="form-control-plaintext" type="text">
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <div class="col-4 ">
+                                    <button name="submit" type="submit" class="btn btn-light buttn">Mettre à jour Mon Profil</button>
+                                  </div>
+                                </div>
+                            </form>
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
