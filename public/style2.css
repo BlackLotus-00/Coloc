@@ -1,0 +1,291 @@
+
+:root{
+    --VIOLET:#cc99ff;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+}
+h1, h3{
+    font-family: 'Oswald', sans-serif;
+}
+
+
+.btn{
+    font-size: 1.7rem;
+    padding:.7rem 4rem;
+    border-radius: 5rem;
+    margin-top: 1rem;
+    background:none;
+    color:#333;
+    cursor: pointer;
+    border:.2rem solid var(--VIOLET);
+}
+
+.btn:hover{
+    background:var(--VIOLET);
+}
+
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    padding:0 .5rem;
+    color:rgb(255, 255, 255);
+}
+
+.heading span{
+    color:var(--VIOLET);
+}
+
+/*----barre de navigation----*/
+#nav-bar
+{
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+.navbar-brand img
+{
+	height: 50px;
+	padding-left: 30px;
+}
+.navbar-nav li
+{
+	padding: 0 10px;
+}
+.navbar-nav li a
+{
+	float: right;
+	text-align: left;
+}
+
+
+#nav-bar ul li a:hover
+{
+	color: #cc99ff!important;
+
+}
+.navbar
+{
+	background: #fff;
+}
+.navbar-toggler
+{
+	border: none!important;
+}
+.nav-link
+{
+	color: #555!important;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+#slider
+{
+	width: 100%;
+    position: absolute;
+
+}
+.carousel-caption
+{
+	top: 50%;
+	transform: translateY(-50%);
+	bottom: initial;
+}
+/*----suggestions----*/
+
+.suggestions{
+    background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)), url(suggestion2.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.suggestions .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.suggestions .box-container .box{
+    background:#fff;
+    width:35rem;
+    padding:2rem;
+    margin:2rem;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.2);
+    text-align: center;
+}
+
+.suggestions .box-container .box img{
+    height:10rem;
+    width:100%;
+    object-fit: cover;
+}
+
+.suggestions .box-container .box h3{
+    color:#333;
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+
+.popular .box-container .box .price{
+    color:#666;
+    font-size: 2.5rem;
+}
+
+.suggestions .box-container .box:hover{
+    transform: scale(1.02);
+    box-shadow: 0 1rem 1rem rgba(0,0,0,.2);
+}
+/*----A propos----*/
+
+.about{
+
+    background: url(aboutus2.jpg) no-repeat left;
+    background-size: 55%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding: 100px 0;
+
+
+}
+.inner-section{
+    width: 55%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 140px;
+    box-shadow: 10px 10px 8px rgba(0,0,0,0.3);
+}
+.inner-section h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+.text{
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+.skills button{
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    width: 200px;
+    background-color: #00999c;
+    color: white;
+    cursor: pointer;
+}
+.skills button:hover{
+    transition: 1s;
+    background-color: #ecf5f5;
+    color: #00999c;
+}
+@media screen and (max-width:1200px){
+    .inner-section{
+        padding: 80px;
+    }
+}
+@media screen and (max-width:1000px){
+    .about{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-section{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about{
+        padding: 0;
+    }
+    .inner-section{
+        padding: 60px;
+    }
+    .skills button{
+        font-size: 19px;
+        padding: 5px;
+        width: 160px;
+    }
+}
+
+/*----contact----*/
+/*----contact----*/
+#contact
+{
+	background: #F5F5DC;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	color: #777;
+}
+#contact h1
+{
+	text-align: center;
+	color: #efefefe !important;
+	padding-bottom: 10px;
+}
+
+#contact h1 ::after
+{
+	content: '';
+	background: #efefefe;
+	display: block;
+	height: 3px;
+	width: 170px;
+	margin: 20px auto 5px;
+
+}
+.contact-info .fa
+{
+	margin: 10px;
+	color: #007bff;
+	font-weight: bold;
+}
+
+.contact-form
+{
+	padding: 15px;
+}
+.form-control
+{
+	border-radius: 0 !important;
+	border: none !important;
+}
+
+
+
+::placeholder
+{
+	background-color: #fff;
+}
+
+.follow
+{
+	background: #fff;
+	padding: 10px;
+	margin: 15px;
+
+
+}
+.chercher
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	color: aliceblue;
+}
