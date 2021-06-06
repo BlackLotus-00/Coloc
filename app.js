@@ -45,6 +45,7 @@ app.use((req,res,next)=> {
 //ROUTES
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
+app.use('/profil', require('./routes/users'))
 app.use('/auth', require('./routes/auth'))
 app.get('/auth/google/callback', passport.authenticate('google'));
 //app.use(express.urlencoded({ extended: true }));

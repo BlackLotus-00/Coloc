@@ -35,5 +35,9 @@ router.get('/hi', checkAuthenticated,(req,res)=> {
         user: req.user
   });
 })
+router.get('/newmdp', (req,res) => {
+  //res.sendFile(path.resolve('./public/login.html'))
+  res.render('newmdp')
+});
 
 module.exports = router;

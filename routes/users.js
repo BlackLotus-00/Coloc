@@ -12,32 +12,14 @@ const {OAuth2Client} = require('google-auth-library');
 const CLIENT_ID= '32169756545-292ks3srcagog06e62va2nbii7v20pka.apps.googleusercontent.com'
 const client = new OAuth2Client(CLIENT_ID);
 //retour precedant non autorisé!!
-const { forwardAuthenticated } = require('../config/auth');
+const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 //login page
 router.get('/login', forwardAuthenticated ,(req,res) => {
     //res.sendFile(path.resolve('./public/login.html'))
     res.render('login')
 })
-/*
-router.get('/google', checkAuthenticated, (req,res) => {
-    //res.sendFile(path.resolve('./public/login.html'))
-    res.render('google',{
-        user: req.user
-    });
-});
 
-router.get('/hello', checkAuthenticated,(req,res) => {
-    //res.sendFile(path.resolve('./public/login.html'))
-    res.render('hello',{
-        user: req.user});
-})
-*/
 
-// callback route for google to redirect to
-// hand control to passport to use code to grab profile info
-/*router.get('/google', passport.authenticate('google'), (req, res) => {
-    res.send('you reached the redirect URI');
-});*/
 //register page
 router.get('/register', forwardAuthenticated ,(req,res) => {
     //res.sendFile(path.resolve('./public/register.html'))
@@ -47,6 +29,10 @@ router.get('/profil', (req,res)=> {
     res.render('profil2', {
         user: req.user
   });
+})
+router.get('/newmdp', (req,res) => {
+    //res.sendFile(path.resolve('./public/login.html'))
+    res.render('newmdp')
 })
 //register handle:
 router.post('/register', (req,res)=> {
@@ -197,7 +183,83 @@ router.post('/login',(req,res,next)=> {
     }) (req,res,next);
     
 });
+//changing pwd
+router.post('/profil/newmdp', (req,res)=> {
+    const {newpwd, newpwd2}=req.body;
+    let errors_mdp= [];
+    if(!newpwd || !newpwd2 ) {
+        errors_mdp.push({ msg: 'Veuillez remplir les champs afin de pouvoir modifier votre mot de passe'})
+    }
+    //check passwords match
+    if(newpwd !== newpwd2) {
+        errors_mdp.push({ msg: 'erreur au niveau du mot de passe'});
+        
+    }
+    //password 6 caracters long
+    if(newpwd.length <6) {
+        errors_mdp.push({ msg:'mot de passe trop court (plus de caracteres)'})
+    }
+    if (errors_mdp.length >0 ){
+        res.render('newmdp', {
+            errors_mdp,
+            newpwd,
+            newpwd2      
+        });
+    } else {
+        res.send(newpwd);
+        console.log(newpwd);
+        User.findOne({ email: req.body.email})
+            .then(user=> {
+                if (user) {
+                    res.send(user.name);
+                }
+            });
+        /*bcrypt.genSalt(10, (err,salt)=> 
+        bcrypt.hash(user.newpwd, salt,(err,hash)=> {
+            if(err=> console.log(err));
+            user.newpwd=hash;
+            //save the new user
+            user.save()
+                    .then(user=> {
+                        req.flash('success_msg', 'Votre mot de passe a été modifié.')//to disp^lay the message we need to add it on messages.ejs!!
+                        //not working unless login.ejs!! 
+                        //res.send('<script>alert("you are now registered")</script>'); 
+                        res.redirect('/profil2');
+                        //res.send('<script>alert("you are now registered")</script>'); 
+                        
 
+                    })
+                    .catch(err=> console.log(err))
+
+
+        }))*/
+
+    }
+});
+/*
+router.post('/edit', ensureAuthenticated, function (req, res, next) {
+
+    User.update({_id: req.session.passport.user.id}, {
+       
+        password: req.body.password,
+    }, function (err){
+        if (err) console.log(err);
+        res.render('profile/profile', {
+        user: req.user
+    });
+});
+});
+router.post('/edit', ensureAuthenticated, function (req, res, next) {
+
+    console.log(req.user._id) //console like this
+
+    User.update({_id: req.user._id}, {$set: req.body}, function (err){
+        if (err) console.log(err);
+        res.render('profile/profile', {
+        user: req.user
+    });
+});
+*/
 //logout handle
 /*router.post('/logout',(req,res)=> {
     req.logout();
@@ -216,6 +278,4 @@ router.get('/logout', (req, res) => {
       
 
 //login with google
-
-
 module.exports= router;
