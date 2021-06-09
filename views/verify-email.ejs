@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/spacelab/bootstrap.min.css" integrity="sha512-1gJsJyef+f5RKK96Vq34R3Lc9KJr21Ss2PcXosqp+1Z1yWpCKXL35p3E5nYxj4PPSfjFUc6elocMw9AiXrGXAQ==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+   
+    <title>LogIn</title>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/92861fb5ae.js" crossorigin="anonymous"></script>
+    <div class="row mt-5" style="color: black;">
+        <div class="col-md-6 m-auto">
+          <div class="card card-body" >
+            <h1 class="text-center mb-3" style="font-family: 'Poppins', sans-serif;"><i class="fas fa-angle-double-right" ></i>  SE CONNECTER</h1>
+            
+            <%- include('./partials/messages.ejs'); %>
+            <form action="/users/verify-email" method="POST">
+              <div class="form-group">
+                  <h3>Verification du compte</h3>
+                <label for="emailToken">SecretToken</label>
+                <input
+                  type="text"
+                  id="emailToken"
+                  name="emailToken"
+                  class="form-control"
+                  placeholder="Enter EmailToken"
+                  
+
+                />
+              </div>
+              <button type="submit" class="btn btn-info btn-block">Vérifier</button>
+            </form>
+            
+</body>
+</html>

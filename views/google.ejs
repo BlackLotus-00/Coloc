@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="google-signin-client_id" content="32169756545-292ks3srcagog06e62va2nbii7v20pka.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title>Oauth</title>
+</head>
+<body>
+    <div class="g-signin2" data-onsuccess="onSignIn">
+        <script>
+          function onSignIn(googleUser) {
+            var id_token = googleUser.getAuthResponse().id_token;
+            /*console.log(id_token);*/
+            var profile = googleUser.getBasicProfile();
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'google');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+              console.log('Signed in as: ' + xhr.responseText);
+              if(xhr.responseText == 'success'){
+                  //signOut();
+                  location.assign('/profil')
+              }
+            };
+            xhr.send(JSON.stringify({token: id_token}));s
+            console.log("User is : " + JSON.stringify(profile))
+          }
+          </script>
+      </div>
+</body>
+</html>

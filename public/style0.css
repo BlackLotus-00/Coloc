@@ -1,0 +1,15 @@
+img {
+  margin-left: 45%;
+}
+.nav-link {
+  color: rgb(0, 0, 0);
+}
+
+.nav-item a:hover {
+  background-color: rgb(237, 243, 237);
+}
+
+/*code to change background color*/
+.navbar-nav .active a {
+  background-color: rgb(255, 245, 245);
+}

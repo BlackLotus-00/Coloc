@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <title>L'COLOC</title>
+    <style>
+        body{
+            background-color:#00001a;
+            margin: 170px;
+        }
+        
+        
+        .card {display:inline-block;}
+    </style>
+</head>
+<body>
+    <div classs="container">
+        <h1 class="mb-4 text-white">Mes Demandes</h1>
+        <a href="/profil" class="btn btn-light">retour au profil</a>
+        <a href="/demandes/new" class="btn btn-warning">Nouvelle Demande</a>
+        <br>
+        <br>
+        <form name="form2" action="/demandes-actives" method="GET" class="d-inline">
+            <select class="form-select" name="type" id="type" type="submit" onchange="return document.form2.submit();">
+                <option value="Active" >Demandes Actives</option>
+                <option value="Désactivée" >Demandes Désactivées</option>
+            </select>
+        </form>
+        <br>
+        <br>
+
+        <% demandes.forEach(demande =>{ %>
+            <div class="card mt-4" style="width: 333px;">
+                <div class="card-body " >
+                    <form action="/demandes/activate/<%= demande.id %>?_method=PUT" method="POST" class="d-inline">
+                        <button class="btn btn-warning" id="desactiver" onclick="return confirm('Vous etes sur de vouloir désactiver cette demande ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Désactiver</button>
+                    </form>
+                    <h4 class="card-title" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><%= demande.titre %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= demande.createdAt.toLocaleDateString() %>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        Ville : <%= demande.ville %>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        Type : <%= demande.type %>
+                    </div>
+                    <a href="demandes/<%= demande.id %>" class="btn btn-success">Plus d'infos</a>
+                    <a href="demandes/edit/<%= demande.id %>" class="btn btn-info">modifier</a>
+                    <form action="/demandes/<%= demande.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button class="btn btn-danger" id="butt" onclick="return confirm('Vous etes sur de vouloir supprimer cette demande ?!')" type="submit">supprimer</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
