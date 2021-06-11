@@ -6,6 +6,7 @@ const Offreco = require('../models/offreco')
 const Demande = require('../models/demande')
 const Offre = require('../models/offre')
 const checkAuthenticated= require('./users');
+//const Message = require('./../models/message');
 //welcome page
 router.get('/', (req,res) => {
     res.sendFile(path.resolve('./public/welcome.html'))
@@ -82,6 +83,24 @@ router.get('/demandes-actives', async (req,res)=>{
         res.render('demandes/desactives', {demandes: demandes})
     }else{
     res.render('demandes/mesdemandes', {demandes: demandes})
+    }
+})
+
+router.get('/tous', async (req,res)=>{
+    const offres = await Offreco.find({activer: "Active"}).sort({createdAt: 'desc'})
+    //const messengers = await Message.find({"username.id" : req.user._id }).sort({createdAt: 'desc'})
+    //console.log(messengers.message);
+    //await Message.deleteMany({ name : "san"});
+    res.render('offres/first', {offres: offres})
+})
+
+router.get('/tousofact', async (req,res)=>{
+    var active = req.query.type
+    const offres = await Offre.find({activer: active}).sort({createdAt: 'desc'})
+    if (active == "Désactivée"){
+        res.render('offres/first', {offres: offres})
+    }else{
+    res.render('offresco/first', {offres: offres})
     }
 })
 

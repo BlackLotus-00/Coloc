@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>L'COLOC</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+  <style>
+
+    #messages div {
+      background-color: lightyellow;
+      border-radius: 30px;
+      width:300px;
+      padding:10px 10px;
+      
+      display: inline-block;
+      position: relative;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-top: 10px;
+      
+      
+  }
+  #messages div:nth-child(2n) {
+    background-color: lightsalmon;
+    width:300px;
+    border-radius: 30px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  </style>
+
+</head>
+<body style="background-color: rgb(245, 245, 167); ">
+  <div >
+    <div class="match" >
+      <img src="/backk.jpg" alt="l'image de l'arriere plan" class="imgctl" style="height: 100px;">
+    </div>
+    <div class="row">
+        <div class="col-md-3 heigh ">
+          <div style="height:500px; background-color: lightgoldenrodyellow;">
+              
+              <div class="list-group" style="width:318px;">
+                <a href="/profil" class="list-group-item list-group-item-action bg-dark text-white fas fa-home"><span style="padding-left:19px;">Profil</span></a>
+                <% messengers.forEach(messenger =>{ %>
+                  <a href="/contacter/chat/<%= messenger %>" class="list-group-item list-group-item-action bg-primary text-white fas fa-user"><span style="padding-left:19px;"><%= clients[messenger] %></span></a>
+                <% }) %>
+                </div> 
+            
+            </div>
+        </div>
+        <div class="col-md-8 padding-0 ">
+          <div class="container">
+              <div class="card">
+                <div class="bg-primary">
+                    <img src="/uploads/pdps/<%= userr.image%>" alt="photo de profil" class=" imag" style="width: 70px;height: 80px;">
+                    <h1 class=" d-inline"><%= userr.name %></h1>
+                </div>
+                  
+                  <br>
+            
+                  <div id="messages" style="max-height: 300px; height: 300px; overflow: scroll;">
+                  </div>
+                  <br>
+                  <textarea id = "message" onfocus="this.value=''" class="form-control" placeholder="Taper un messge"></textarea>
+                  <br>
+                  <button id="send" class="btn btn-primary">Envoyer</button>
+              </div>
+              
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+  window.setInterval(function() {
+    var elem = document.getElementById('messages');
+    elem.scrollTop = elem.scrollHeight;
+  }, 1000);
+  
+   const socket = io();
+  
+    $(() => {
+        $("#send").click(()=>{
+            sendMessage({name: $("#name").val(), message: $("#message").val()});
+        })
+        getMessages()
+      })
+    
+    
+    
+    socket.on("message", message=>{
+      addMessages(message)
+    })
+
+
+    function addMessages(message){
+        $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
+    }
+
+    function writersMessages(message){
+        $("#messages").append(`<h4> <%= user.name %> </h4> <p> ${message.message} </p>`)
+    }
+
+    function getMessages(){
+      $.get('http://localhost:5000/contacter/messages', (data) => {
+        data.forEach(addMessages);
+      })
+    }
+    
+    function sendMessage(message){
+      $.post('http://localhost:5000/contacter/messages', message)
+      writersMessages(message)
+    }
+    
+</script>
+</body>
+</html>
