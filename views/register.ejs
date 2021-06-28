@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/spacelab/bootstrap.min.css" integrity="sha512-1gJsJyef+f5RKK96Vq34R3Lc9KJr21Ss2PcXosqp+1Z1yWpCKXL35p3E5nYxj4PPSfjFUc6elocMw9AiXrGXAQ==" crossorigin="anonymous" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    
+    <title>Register</title>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/92861fb5ae.js" crossorigin="anonymous"></script>
+    <div class="row mt-5" style="color: black;">
+        <div class="col-md-6 m-auto">
+          <div class="card card-body">
+            
+            <%- include('./partials/messages.ejs'); %>
+            <h1 class="text-center mb-3" style="font-family: 'Poppins', sans-serif;">
+              <i class="fas fa-user-plus"></i> S'INSCRIRE
+            </h1>
+            <form action="/users/register" method="POST">
+              <div class="form-group">
+                <label for="lastname">Prénom</label>
+                <input
+                  type="name"
+                  id="lastname"
+                  name="lastname"
+                  class="form-control"
+                  placeholder="Enter Name"
+                  value="<%= typeof lastname != 'undefined' ? lastname : '' %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="name">Nom</label>
+                <input
+                  type="name"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Enter Name"
+                  value="<%= typeof name != 'undefined' ? name : '' %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Enter Email"
+                  value="<%= typeof email != 'undefined' ? email : '' %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Create Password"
+                  value="<%= typeof password != 'undefined' ? password : '' %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password2">Confirmer le mot de passe</label>
+                <input
+                  type="password"
+                  id="password2"
+                  name="password2"
+                  class="form-control"
+                  placeholder="Confirm Password"
+                  
+                />
+              </div>
+              <div class="form-group">
+                <label for="birthday">Date de Naissance</label>
+                <input
+                  type="date"
+                  id="birthday"
+                  name="birthday"
+                  class="form-control"
+                  placeholder="jj/mm/aaaa"
+                  
+                />
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label> 
+                <select id="status"name="status">
+                  <option value="status0">------</option>
+                  <option value="status1">Etudiant(e)</option>
+                  <option value="status2">Propriétaire</option>
+                  
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="phone">Enterer votre numéro de téléphone:</label>
+                <input type="phone" id="phone" name="phone" placeholder="212-111-11-11-11"  ><br><br>
+                <small>Format: 212-xxx-xx-xx-xx</small>
+                
+              </div>
+              <button type="submit" class="btn btn-info btn-block">
+                Confirmer
+              </button>
+            </form>
+            <p class="lead mt-4">Vous avez déjà un compte? <a href="/users/login">Se connecter</a></p>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <title>L'COLOC</title>
+    <style>
+        body{
+            background-color:#00001a;
+            margin: 170px;
+        }
+        
+        
+        .card {display:inline-block;}
+    </style>
+</head>
+<body>
+    <div classs="container">
+        <h1 class="mb-4 text-white">Mes Offres</h1>
+        <a href="/profil" class="btn btn-light">retour au profil</a>
+        <a href="/offres/new" class="btn btn-warning">Nouvelle Offre</a>
+        <br>
+        <br>
+        <form name="form1" action="/offres-actives" method="GET" class="d-inline">
+            <select class="form-select" name="type" id="type" type="submit" onchange="return document.form1.submit();">
+                <option value="Active" >Offres Actives</option>
+                <option value="Désactivée" >Offres Désactivées</option>
+            </select>
+        </form>
+        <br>
+        <br>
+
+        <% offres.forEach(offre =>{ %>
+            <div class="card mt-4" style="width: 333px; height: 360px;">
+                <div class="card-body " >
+                    <form action="/offres/activate/<%= offre.id %>?_method=PUT" method="POST" class="d-inline">
+                        <button class="btn btn-warning" id="desactiver" onclick="return confirm('Vous etes sur de vouloir désactiver cette offre ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Désactiver</button>
+                    </form>
+                    <h4 class="card-title" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><%= offre.titre %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= offre.createdAt.toLocaleDateString() %>
+                    </div>
+                    <div>
+                        <img src="/uploads/images/<%= offre.image[0] %>" alt="" class="card-img" style="width: 250px; height: 100px;">
+                    </div>
+                    <div class="card-text mb-2" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        Adresse : <%= offre.adresse %>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        Ville : <%= offre.ville %>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        Prix : <%= offre.prix %>
+                    </div>
+                    <a href="offres/<%= offre.id %>" class="btn btn-success">Plus d'infos</a>
+                    <a href="offres/edit/<%= offre.id %>" class="btn btn-info">modifier</a>
+                    <form action="/offres/<%= offre.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button class="btn btn-danger" id="supprimer" onclick="return confirm('Vous etes sur de vouloir supprimer cette offre ?!')" type="submit">supprimer</button>
+                    </form>
+                    
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

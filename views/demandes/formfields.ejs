@@ -1,0 +1,29 @@
+<div class="container shadow p-3 mb-5 bg-body rounded" >
+    <div class="form-group">
+        <label for="title">Titre :</label>
+        <input required value="<%= demande.titre %>" type="text" name="titre" id="titre" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea name="description" id="description" class="form-control"><%= demande.description %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="type">Type de demande :</label>
+        <select class="form-select" name="type" id="type">
+            <option value="location">Location</option>
+            <option value="colocation">Colocation</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label for="ville">Ville :</label>
+        <input required value="<%= demande.ville %>" type="text" name="ville" id="ville" class="form-control">
+    </div>
+
+    <br>
+    <a href="/mesdemandes" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Save</button>
+</div>
