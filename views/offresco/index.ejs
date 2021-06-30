@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <title>L'COLOC</title>
     <style>
         body{
-            background-color:#00001a;
+            
             margin: 170px;
         }
         
@@ -37,7 +39,8 @@
             <div class="card mt-4" style="width: 333px; height: 360px;">
                 <div class="card-body " >
                     <form action="/offresco/activate/<%= offre.id %>?_method=PUT" method="POST" class="d-inline">
-                        <button class="btn btn-warning" id="desactiver" onclick="return confirm('Vous etes sur de vouloir désactiver cette offre ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit">Désactiver</button>
+                        <a href="#"><i class="material-icons" style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;">more_horiz </i></a>
+                        <button class="btn material-icons" id="desactiver" onclick="return confirm('Vous etes sur de vouloir désactiver cette offre ?!'); " style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;" type="submit"></button>
                     </form>
                     <h4 class="card-title" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><%= offre.titre %></h4>
                     <div class="card-subtitle text-muted mb-2">

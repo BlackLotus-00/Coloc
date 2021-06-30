@@ -5,6 +5,7 @@ const path=require('path');
 const Offreco = require('../models/offreco')
 const Demande = require('../models/demande')
 const Offre = require('../models/offre')
+const Visite = require('../models/visite')
 const checkAuthenticated= require('./users');
 //const Message = require('./../models/message');
 //welcome page
@@ -102,6 +103,12 @@ router.get('/tousofact', async (req,res)=>{
     }else{
     res.render('offresco/first', {offres: offres})
     }
+})
+
+router.get('/visites', async (req,res)=>{
+    const visites = await Visite.find({"username.id" : req.user._id}).sort({createdAt: 'desc'})
+    //const user = await User.findById(req.user.id)
+    res.render('visite', {visites: visites, user: req.user})
 })
 
 module.exports = router;

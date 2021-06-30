@@ -36,7 +36,7 @@
         <% offres.forEach(offre =>{ %>
             <div class="card mt-4" style="width: 333px; height: 360px;">
                 <div class="card-body " >
-                    <a href="contacter/chat/<%= offre.username.id %>" class="btn btn-warning" id="contacter" style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;">contacter</a>
+                    <a href="visites/<%= offre.id %>" class="btn btn-warning" id="contacter" style="border-bottom-left-radius:50px; border-top-left-radius:50px ; position: absolute; right: 0;">contacter</a>
                     <h4 class="card-title" style="width: 290px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><%= offre.titre %></h4>
                     <div class="card-subtitle text-muted mb-2">
                         <%= offre.createdAt.toLocaleDateString() %>

@@ -9,7 +9,7 @@
     <title>L'COLOC</title>
     <style>
         body{
-            background-color:#00001a;
+            
             margin: 170px;
         }
         
@@ -17,7 +17,7 @@
 </head>
 <body>
     <div classs="container">
-        <h1 class="mb-4 text-white">Nouvelle offre</h1>
+        <h1 class="mb-4">Nouvelle offre</h1>
 
         <form action="/offresco" method="POST" enctype="multipart/form-data" >
             <div class="container shadow p-3 mb-5 bg-body rounded" >
@@ -52,8 +52,8 @@
                     <input value="<%= offre.image %>" type="file" name="image" id="image" class="form-control" multiple>
                 </div>
                 <br>
-                <a href="/mesoffresco" class="btn btn-secondary">Cancel</a>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/mesoffresco" class="btn btn-secondary">Annuler</a>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
             </div>
         </form>
     </div>

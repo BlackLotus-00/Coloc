@@ -110,6 +110,7 @@ app.use('/auth', require('./routes/auth'))
 app.use('/offresco', require('./routes/offresco'))
 app.use('/demandes', require('./routes/demandes'))
 app.use('/offres', require('./routes/offres'))
+app.use('/visites', require('./routes/visites'))
 app.use('/contacter', require('./routes/chat'))
 app.get('/auth/google/callback', passport.authenticate('google'));
 //app.use(express.urlencoded({ extended: true }));
