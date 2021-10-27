@@ -15,7 +15,7 @@
 
 • *Aider les étudiants à savoir plus sur leur colocataire éventuel.*
 
-**Cette application est développer par : **
+**Cette application est développer par :**
 
 • *Modélisation et Conception : UML, AdobeXD*
 
