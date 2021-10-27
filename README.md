@@ -1,9 +1,9 @@
 # Coloc
-*Dans le cadre de l’élément projet 1 du module architecture et qualité des logiciels, de l’école Nationale Supérieure des Mines de Rabat, nous avons été amené à développer un projet, commençant par une phase de modélisation jusqu'à la phase de la réalisation. 
+*Dans le cadre de l’élément projet 1 du module architecture et qualité des logiciels, de l’école Nationale Supérieure des Mines de Rabat, nous avons été amené à développer un projet, commençant par une phase de modélisation jusqu'à la phase de la réalisation.*
 
-***L'COLOC est basé sur la recherche de locations et de colocations. Cette application web est destinée aux étudiants et les propriétaires, afin de les donner la possibilité pour publier leurs offres et demandes, et elle possède également d'un espace de communication pour se connecter entre eux.
+***L'COLOC est basé sur la recherche de locations et de colocations. Cette application web est destinée aux étudiants et les propriétaires, afin de les donner la possibilité pour publier leurs offres et demandes, et elle possède également d'un espace de communication pour se connecter entre eux.***
 
-**Les objectifs de cette application web :
+**Les objectifs de cette application web :**
 
 • *Simplifier le processus de publication des offres de location pour les propriétaires d'une manière interactive afin qu'ils publient encore plus d'offres.
 
