@@ -15,3 +15,5 @@ Cette application est développer par :
 • Front-end : HTML/CSS (Bootstrap), JavaScript (JQuery, Ajax)
 • Back-end : NodeJs, Handlebars/EJS, Socket.io,ExpressJs, Mongoose
 • Base de données : MongoDB 
+
+Les différentes Branches de ce git, représentent les différentes tâches effectuées dans des périodes séparées dans le temps et par les différentes membres du groupe.
