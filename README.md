@@ -5,15 +5,15 @@
 
 **Les objectifs de cette application web :**
 
-• *Simplifier le processus de publication des offres de location pour les propriétaires d'une manière interactive afin qu'ils publient encore plus d'offres.
+• *Simplifier le processus de publication des offres de location pour les propriétaires d'une manière interactive afin qu'ils publient encore plus d'offres.*
 
-• *Aider les étudiants à trouver des loyers dans les régions qu'ils souhaitent.
+• *Aider les étudiants à trouver des loyers dans les régions qu'ils souhaitent.*
 
-• *Aider les étudiants à se connecter avec des propriétaires et à entrer en contact avec eux, puisque le site sera réservé aux étudiants et aux propriétaires.
+• *Aider les étudiants à se connecter avec des propriétaires et à entrer en contact avec eux, puisque le site sera réservé aux étudiants et aux propriétaires.*
 
-• *Aider les étudiants à entrer en contact avec d'autres étudiants des autres écoles afin de trouver le colocataire qui leur convient.
+• *Aider les étudiants à entrer en contact avec d'autres étudiants des autres écoles afin de trouver le colocataire qui leur convient.*
 
-• *Aider les étudiants à savoir plus sur leur colocataire éventuel.
+• *Aider les étudiants à savoir plus sur leur colocataire éventuel.*
 
 **Cette application est développer par :**
 
@@ -25,4 +25,4 @@
 
 • *Base de données : MongoDB *
 
-*Les différentes Branches de ce git, représentent les différentes tâches effectuées dans des périodes séparées dans le temps et par les différentes membres du groupe.
+*Les différentes Branches de ce git, représentent les différentes tâches effectuées dans des périodes séparées dans le temps et par les différentes membres du groupe.*
